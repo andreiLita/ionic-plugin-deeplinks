@@ -202,7 +202,8 @@ var IonicDeeplink = {
   _getRealPath: function (data) {
 
     // 1. Let's just do the obvious and return the parsed 'path' first, if available.
-    if (!!data.path && data.path !== "") {
+    // Note: Hashtag routing does not work because it will always match to /
+    if (!!data.path && data.path !== "" && data.path !== "/") {
       return data.path;
     }
 
